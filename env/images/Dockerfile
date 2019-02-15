@@ -35,10 +35,9 @@ RUN yum -y install httpd httpd-devel
 #------------------------------------------------------------
 # MySQL
 ## Install
-RUN yum install -y http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
-RUN yum install -y mysql-client mysql-server mysql-devel
-## Configuration
-RUN touch /etc/sysconfig/network
+# RUN yum install -y http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
+# RUN yum install -y mysql-client mysql-server mysql-devel
+# RUN touch /etc/sysconfig/network
 
 # PHP
 RUN yum -y --enablerepo=remi-php71,epel,remi install php php-mysql php-mbstring php-pear php-opcache php-cli php-mcrypt \

@@ -69,7 +69,7 @@ class DATABASE_CONFIG {
     public $default = array(
         'datasource'=>'Database/Mysql',
         'persistent'=>false,
-        'host'=>'localhost',
+        'host'=>'oassist-db',
         'login'=>'root',
         'password'=>'',
         'database'=>'oassist',
