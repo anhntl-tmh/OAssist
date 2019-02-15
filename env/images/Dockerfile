@@ -35,13 +35,14 @@ RUN yum -y install httpd httpd-devel
 #------------------------------------------------------------
 # MySQL
 ## Install
-RUN yum install -y mysql mysql-server
+RUN yum install -y http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
+RUN yum install -y mysql-client mysql-server mysql-devel
 ## Configuration
 RUN touch /etc/sysconfig/network
 
 # PHP
-RUN yum -y --enablerepo=remi-php71,epel,remi install php php-devel php-mysql php-mbstring php-pear php-opcache php-cli php-mcrypt \
-    php-mysqlnd php-pdo php-fpm \
+RUN yum -y --enablerepo=remi-php71,epel,remi install php php-mysql php-mbstring php-pear php-opcache php-cli php-mcrypt \
+    php-mysqlnd php-pdo php-pecl-xdebug php-pecl-imagick php-fpm php-pecl-apcu php-pecl-redis php-gd \
     && yum -y clean all
 
 # update glibc
@@ -49,6 +50,7 @@ RUN yum -y update glibc && yum -y clean all
 
 ## COMMON Configuration
 RUN chmod ugo+w /var/lib
+RUN mkdir /var/tmp/logs
 RUN chmod -R 777 /var/tmp
 COPY files/etc /etc
 
