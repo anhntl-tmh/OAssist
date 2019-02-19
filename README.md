@@ -30,3 +30,7 @@ _*** Làm phase này khi đã hoàn thành xong phase 1_
 
 ### Start docker containers on daily
 1. `docker start oassist-db oassist`
+
+### Access to environments
+1. `docker exec -it oassist bash`
+2. `docker exec -it oassist-db bash`
